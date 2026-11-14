@@ -12,6 +12,7 @@ Choose **Encrypted offline stub** to load a bundled response for `octocat`. The 
 
 - [ProfileScreen.kt](demo/src/main/kotlin/io/github/lyheangtaing/moya/demo/ui/ProfileScreen.kt) renders Jetpack Compose state and forwards user actions.
 - [ProfileViewModel.kt](demo/src/main/kotlin/io/github/lyheangtaing/moya/demo/ui/ProfileViewModel.kt) exposes a `StateFlow` and runs requests in `viewModelScope`.
+- [NetworkModule.kt](demo/src/main/kotlin/io/github/lyheangtaing/moya/demo/di/NetworkModule.kt) provides a shared OkHttp client and profile service through Hilt. The activity obtains the Hilt ViewModel with `by viewModels()`.
 - [GitHubProfileService.kt](demo/src/main/kotlin/io/github/lyheangtaing/moya/demo/data/GitHubProfileService.kt) defines the Moya target, adds the bearer token, and selects live or stub mode.
 - [ResponseDecryptor.kt](demo/src/main/kotlin/io/github/lyheangtaing/moya/demo/data/ResponseDecryptor.kt) authenticates and decrypts the bundled response.
 - [GitHubProfile.kt](demo/src/main/kotlin/io/github/lyheangtaing/moya/demo/data/GitHubProfile.kt) defines the typed response and maps `public_repos` to a Kotlin property.

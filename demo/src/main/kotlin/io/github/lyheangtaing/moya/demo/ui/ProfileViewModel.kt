@@ -2,6 +2,7 @@ package io.github.lyheangtaing.moya.demo.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import dagger.hilt.android.lifecycle.HiltViewModel
 import io.github.lyheangtaing.moya.MoyaException
 import io.github.lyheangtaing.moya.demo.R
 import io.github.lyheangtaing.moya.demo.data.GitHubProfileService
@@ -10,6 +11,7 @@ import io.github.lyheangtaing.moya.demo.data.RequestMode
 import io.github.lyheangtaing.moya.demo.data.ResponseDecryptionException
 import java.io.IOException
 import java.nio.charset.CharacterCodingException
+import javax.inject.Inject
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
@@ -31,7 +33,10 @@ internal sealed interface ProfileResult {
     data class Error(val message: Int, val statusCode: Int? = null) : ProfileResult
 }
 
-internal class ProfileViewModel(private val service: GitHubProfileService) : ViewModel() {
+@HiltViewModel
+internal class ProfileViewModel @Inject constructor(
+    private val service: GitHubProfileService,
+) : ViewModel() {
     private val mutableState = MutableStateFlow(ProfileUiState())
     val state = mutableState.asStateFlow()
 

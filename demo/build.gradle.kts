@@ -2,6 +2,8 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
     id("com.android.application")
+    id("com.google.devtools.ksp")
+    id("com.google.dagger.hilt.android")
     kotlin("android")
     kotlin("plugin.compose")
     kotlin("plugin.serialization")
@@ -43,7 +45,10 @@ dependencies {
     implementation("androidx.compose.material3:material3")
     implementation("androidx.lifecycle:lifecycle-runtime-compose:2.9.1")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.1")
+    implementation("com.google.dagger:hilt-android:2.57.2")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.9.0")
-    testImplementation("junit:junit:4.13.2")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.10.2")
+
+    ksp("com.google.dagger:hilt-compiler:2.57.2")
+    testImplementation("junit:junit:4.13.2")
 }
