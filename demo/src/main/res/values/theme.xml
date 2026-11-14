@@ -1,0 +1,25 @@
+<resources>
+    <color name="background">#F3F5F0</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="ink">#192721</color>
+    <color name="muted">#46574E</color>
+    <color name="outline">#CDD8CF</color>
+    <color name="accent">#1F5A43</color>
+    <color name="error">#A12534</color>
+
+    <style name="Theme.MoyaDemo.Base" parent="android:style/Theme.Material.Light.NoActionBar">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:colorAccent">@color/accent</item>
+        <item name="android:windowBackground">@color/background</item>
+        <item name="android:statusBarColor">@color/ink</item>
+        <item name="android:navigationBarColor">@color/ink</item>
+    </style>
+
+    <style name="Theme.MoyaDemo" parent="Theme.MoyaDemo.Base" />
+
+    <style name="DemoLabel">
+        <item name="android:textColor">@color/ink</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+</resources>

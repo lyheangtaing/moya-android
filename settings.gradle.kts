@@ -15,4 +15,4 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "moya-android"
-include(":moya")
+include(":moya", ":demo")

@@ -2,6 +2,14 @@
 
 Moya Android is a Kotlin networking library for Android 5.0 (API 21) and later. Define each API operation as a `TargetType` and execute it through a suspending `MoyaProvider`. The API follows the target and provider pattern from [Moya for iOS](https://moya.github.io/targets.html) and uses OkHttp for HTTP.
 
+## Run the demo
+
+Open this repository in Android Studio and run the `demo` configuration on an emulator or Android device. You can also install the debug build on a connected device with `./gradlew :demo:installDebug`, then open **Moya Demo** from the launcher.
+
+Enter a public GitHub username and tap **Send request**. **Live API** fetches the profile from GitHub without a token. **Offline stub** returns local sample data through the same SDK and displays the stub status. The app shows the HTTP status, profile name, follower count, and public repository count.
+
+The `demo` module depends on `project(":moya")`. See [GitHubApi.kt](demo/src/main/kotlin/io/github/lyheangtaing/moya/demo/GitHubApi.kt) for the target and sample data, and [MainActivity.kt](demo/src/main/kotlin/io/github/lyheangtaing/moya/demo/MainActivity.kt) for provider setup, coroutine cancellation, and response handling.
+
 ## Install from source
 
 For an Android app in this Gradle build, add this to its `build.gradle.kts`.

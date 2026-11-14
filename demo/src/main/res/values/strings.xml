@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Moya Demo</string>
+    <string name="title">GitHub profile lookup</string>
+    <string name="subtitle">Explore live and stubbed requests with Moya Android.</string>
+    <string name="username">GitHub username</string>
+    <string name="default_username" translatable="false">octocat</string>
+    <string name="request_mode">Request mode</string>
+    <string name="live_mode">Live API</string>
+    <string name="stub_mode">Offline stub</string>
+    <string name="send_request">Send request</string>
+    <string name="request_preview" translatable="false">GET /users/{username}</string>
+    <string name="response_title">Response</string>
+    <string name="empty_response">Send a request to see the result here.</string>
+    <string name="loading">Fetching profile…</string>
+    <string name="live_status">Live API · HTTP %1$d</string>
+    <string name="stub_status">Offline stub · HTTP %1$d</string>
+    <string name="profile_handle" translatable="false">@%1$s</string>
+    <string name="profile_counts">Followers: %1$d · Repos: %2$d</string>
+    <string name="username_required">Enter a GitHub username.</string>
+    <string name="invalid_username">Use a GitHub username with letters, digits, and single hyphens.</string>
+    <string name="not_found">GitHub user not found (HTTP 404).</string>
+    <string name="http_error">GitHub returned HTTP %1$d.</string>
+    <string name="network_error">Couldn’t reach GitHub. Check your connection or try the offline stub.</string>
+    <string name="invalid_request">Couldn’t create the request for this username.</string>
+    <string name="invalid_response">Couldn’t read the profile from the response.</string>
+</resources>
