@@ -6,9 +6,15 @@ Moya Android is a Kotlin networking library for Android 5.0 (API 21) and later. 
 
 Open this repository in Android Studio and run the `demo` configuration on an emulator or Android device. You can also install the debug build on a connected device with `./gradlew :demo:installDebug`, then open **Moya Demo** from the launcher.
 
-Enter a public GitHub username and tap **Send request**. **Live API** fetches the profile from GitHub without a token. **Offline stub** returns local sample data through the same SDK and displays the stub status. The app shows the HTTP status, profile name, follower count, and public repository count.
+Choose **Live API**, enter a public GitHub username, and tap **Send request**. The token field is optional. A Moya plugin adds an `Authorization: Bearer` header for live requests when you supply a token. The masked field keeps the token in memory for the screen session. See [GitHub authentication](https://docs.github.com/en/rest/authentication/authenticating-to-the-rest-api).
 
-The `demo` module depends on `project(":moya")`. See [GitHubApi.kt](demo/src/main/kotlin/io/github/lyheangtaing/moya/demo/GitHubApi.kt) for the target and sample data, and [MainActivity.kt](demo/src/main/kotlin/io/github/lyheangtaing/moya/demo/MainActivity.kt) for provider setup, coroutine cancellation, and response handling.
+Choose **Encrypted offline stub** to load a bundled response for `octocat`. The service authenticates and decrypts the AES-GCM response before decoding its JSON into a typed profile. The fixture and its matching key ship together for demonstration. A live GitHub response arrives as JSON over HTTPS. See [Android cryptography](https://developer.android.com/privacy-and-security/cryptography).
+
+- [ProfileScreen.kt](demo/src/main/kotlin/io/github/lyheangtaing/moya/demo/ui/ProfileScreen.kt) renders Jetpack Compose state and forwards user actions.
+- [ProfileViewModel.kt](demo/src/main/kotlin/io/github/lyheangtaing/moya/demo/ui/ProfileViewModel.kt) exposes a `StateFlow` and runs requests in `viewModelScope`.
+- [GitHubProfileService.kt](demo/src/main/kotlin/io/github/lyheangtaing/moya/demo/data/GitHubProfileService.kt) defines the Moya target, adds the bearer token, and selects live or stub mode.
+- [ResponseDecryptor.kt](demo/src/main/kotlin/io/github/lyheangtaing/moya/demo/data/ResponseDecryptor.kt) authenticates and decrypts the bundled response.
+- [GitHubProfile.kt](demo/src/main/kotlin/io/github/lyheangtaing/moya/demo/data/GitHubProfile.kt) defines the typed response and maps `public_repos` to a Kotlin property.
 
 ## Install from source
 

@@ -1,26 +1,30 @@
 <resources>
     <string name="app_name">Moya Demo</string>
     <string name="title">GitHub profile lookup</string>
-    <string name="subtitle">Explore live and stubbed requests with Moya Android.</string>
     <string name="username">GitHub username</string>
-    <string name="default_username" translatable="false">octocat</string>
     <string name="request_mode">Request mode</string>
     <string name="live_mode">Live API</string>
-    <string name="stub_mode">Offline stub</string>
+    <string name="stub_mode">Encrypted offline stub</string>
     <string name="send_request">Send request</string>
     <string name="request_preview" translatable="false">GET /users/{username}</string>
     <string name="response_title">Response</string>
     <string name="empty_response">Send a request to see the result here.</string>
     <string name="loading">Fetching profile…</string>
     <string name="live_status">Live API · HTTP %1$d</string>
-    <string name="stub_status">Offline stub · HTTP %1$d</string>
+    <string name="stub_status">AES-GCM decrypted · HTTP %1$d</string>
     <string name="profile_handle" translatable="false">@%1$s</string>
     <string name="profile_counts">Followers: %1$d · Repos: %2$d</string>
     <string name="username_required">Enter a GitHub username.</string>
     <string name="invalid_username">Use a GitHub username with letters, digits, and single hyphens.</string>
     <string name="not_found">GitHub user not found (HTTP 404).</string>
     <string name="http_error">GitHub returned HTTP %1$d.</string>
-    <string name="network_error">Couldn’t reach GitHub. Check your connection or try the offline stub.</string>
+    <string name="network_error">Couldn’t reach GitHub. Check your connection or try the encrypted stub.</string>
     <string name="invalid_request">Couldn’t create the request for this username.</string>
     <string name="invalid_response">Couldn’t read the profile from the response.</string>
+    <string name="token_label">GitHub token (optional)</string>
+    <string name="token_help">Used for live requests to GitHub during this session.</string>
+    <string name="invalid_token">Enter a token without spaces or line breaks.</string>
+    <string name="stub_help">Decrypt a bundled profile for \@octocat without a network request.</string>
+    <string name="unauthorized">GitHub rejected the token (HTTP 401).</string>
+    <string name="decryption_error">Response authentication or decryption failed.</string>
 </resources>
